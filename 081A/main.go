@@ -3,17 +3,21 @@ package main
 import "fmt"
 
 func main() {
-	var in string
+	var input string
+	fmt.Scan(&input)
+	fmt.Println(one(input))
+}
+
+func one(input string) int {
 	var i int
-	fmt.Scan(&in)
-	if in[0] == '1' {
+	if input[0] == '1' {
 		i++
 	}
-	if in[1] == '1' {
+	if input[1] == '1' {
 		i++
 	}
-	if in[2] == '1' {
+	if input[2] == '1' {
 		i++
 	}
-	fmt.Println(i)
+	return i
 }
