@@ -5,24 +5,25 @@ import (
 	"sort"
 )
 
-func main() {
-	var n int
+func game(n int, a []int) int {
 	var alice, bob int
-
-	fmt.Scan(&n)
-	cards := make([]int, n)
-	for i := range cards {
-		fmt.Scan(&cards[i])
-	}
-
-	sort.Sort(sort.Reverse(sort.IntSlice(cards)))
-
-	for i, num := range cards {
+	sort.Sort(sort.Reverse(sort.IntSlice(a)))
+	for i, num := range a {
 		if i%2 == 0 {
 			alice += num
 		} else {
 			bob += num
 		}
 	}
-	fmt.Println(alice - bob)
+	return alice - bob
+}
+
+func main() {
+	var n int
+	fmt.Scan(&n)
+	a := make([]int, n)
+	for i := range a {
+		fmt.Scan(&a[i])
+	}
+	fmt.Println(game(n, a))
 }
