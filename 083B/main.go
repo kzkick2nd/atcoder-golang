@@ -3,16 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	var n, a, b, total int
+	var n, a, b int
 	fmt.Scan(&n, &a, &b)
+	fmt.Println(sum(n, a, b))
+}
 
+func sum(n, a, b int) int {
+	var total int
 	for i := 1; i <= n; i++ {
 		sum := sumDigits(i)
 		if sum >= a && sum <= b {
 			total += i
 		}
 	}
-	fmt.Println(total)
+	return total
 }
 
 func sumDigits(n int) int {
