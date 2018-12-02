@@ -2,28 +2,33 @@ package main
 
 import "fmt"
 
-func main() {
-	var n, c int
-	fmt.Scan(&n)
-	s := make([]int, n)
-	for i, _ := range s {
-		fmt.Scan(&s[i])
-	}
-	flag := true
+func change(n int, a []int) int {
+	var count int
+	odd_flag := false
 	for {
-		for _, num := range s {
+		for _, num := range a {
 			if num%2 != 0 {
-				flag = false
+				odd_flag = true
 				break
 			}
 		}
-		if flag == false {
+		if odd_flag == true {
 			break
 		}
-		for i, num := range s {
-			s[i] = num / 2
+		for i, num := range a {
+			a[i] = num / 2
 		}
-		c++
+		count++
 	}
-	fmt.Println(c)
+	return count
+}
+
+func main() {
+	var n int
+	fmt.Scan(&n)
+	a := make([]int, n)
+	for i, _ := range a {
+		fmt.Scan(&a[i])
+	}
+	fmt.Println(change(n, a))
 }
