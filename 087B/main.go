@@ -2,18 +2,23 @@ package main
 
 import "fmt"
 
-func main() {
-	var a, b, c, x, z int
-	fmt.Scan(&a, &b, &c, &x)
-	for ac := 0; ac <= a; ac++ {
-		for bc := 0; bc <= b; bc++ {
-			for cc := 0; cc <= c; cc++ {
-				sum := 500*ac + 100*bc + 50*cc
+func pattern(a, b, c, x int) int {
+	var pattern int
+	for aloop := 0; aloop <= a; aloop++ {
+		for bloop := 0; bloop <= b; bloop++ {
+			for cloop := 0; cloop <= c; cloop++ {
+				sum := 500*aloop + 100*bloop + 50*cloop
 				if sum == x {
-					z++
+					pattern++
 				}
 			}
 		}
 	}
-	fmt.Println(z)
+	return pattern
+}
+
+func main() {
+	var a, b, c, x int
+	fmt.Scan(&a, &b, &c, &x)
+	fmt.Println(pattern(a, b, c, x))
 }
