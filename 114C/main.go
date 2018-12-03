@@ -4,49 +4,21 @@ import (
 	"fmt"
 )
 
-func valid(n, p int) bool {
-	if p < 357 {
-		return false
+func dfs(in, x, a, b, c int, count *int) {
+	if x > in {
+		return
 	}
-	if p > n {
-		return false
+	if a > 0 && b > 0 && c > 0 {
+		*count++
 	}
-	var exists [10]bool
-	for p > 0 {
-		exists[p%10] = true
-		p /= 10
-	}
-	if !(exists[3] && exists[5] && exists[7]) {
-		return false
-	}
-	return true
+	dfs(in, x*10+3, 1, b, c, count)
+	dfs(in, x*10+5, a, 1, c, count)
+	dfs(in, x*10+7, a, b, 1, count)
 }
 
-func rec(n, p, a, len int) int {
+func target(in int) int {
 	var count int
-	if a < len {
-		count += rec(n, p*10+3, a+1, len)
-		count += rec(n, p*10+5, a+1, len)
-		count += rec(n, p*10+7, a+1, len)
-	}
-	if valid(n, p) {
-		count++
-	}
-	return count
-}
-
-func target(n int) int {
-	if n < 357 {
-		return 0
-	}
-
-	var ns []int
-	tmp := n
-	for tmp != 0 {
-		ns = append(ns, tmp%10)
-		tmp /= 10
-	}
-	count := rec(n, 0, 0, len(ns))
+	dfs(in, 0, 0, 0, 0, &count)
 	return count
 }
 
