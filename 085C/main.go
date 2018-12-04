@@ -2,23 +2,29 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
-func main() {
-	var N, Y int
-	fmt.Scan(&N, &Y)
-	for ix := 0; ix <= N; ix++ {
-		for iy := 0; iy <= N; iy++ {
-			iz := N - ix - iy
-			if iz < 0 {
+func dama(N, Y int) (x, y, z int) {
+	x, y, z = -1, -1, -1
+	for a := 0; a <= N; a++ {
+		for b := 0; b <= N; b++ {
+			c := N - a - b
+			if c < 0 {
 				continue
 			}
-			if Y == 10000*ix+5000*iy+1000*iz {
-				fmt.Println(ix, iy, iz)
-				os.Exit(0)
+			if Y == 10000*a+5000*b+1000*c {
+				fmt.Println(a, b, c)
+				x = a
+				y = b
+				z = c
 			}
 		}
 	}
-	fmt.Println(-1, -1, -1)
+	return x, y, z
+}
+
+func main() {
+	var n, y int
+	fmt.Scan(&n, &y)
+	fmt.Println(dama(n, y))
 }
