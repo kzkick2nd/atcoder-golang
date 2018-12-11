@@ -4,26 +4,25 @@ import (
 	"fmt"
 )
 
-func grid(h, w int, input []string) string {
-	dx := []int{0, 1, 0, -1}
-	dy := []int{1, 0, -1, 0}
+type pair struct {
+	i, j int
+}
 
-	for px := 0; px < h; px++ {
-		for py := 0; py < w; py++ {
-			if string(input[py][px]) == "." {
+func grid(h, w int, input []string) string {
+	for i := range input {
+		for j := range input[i] {
+			if input[i][j] == '.' {
 				continue
 			}
 			var count int
-			for d := 0; d < 4; d++ {
-				posx := px + dx[d]
-				posy := py + dy[d]
-				if posx < 0 || h <= posx {
-					continue
-				}
-				if posy < 0 || w <= posy {
-					continue
-				}
-				if string(input[posy][posx]) == "#" {
+			for _, p := range []pair{{1, 0}, {-1, 0}, {0, 1}, {0, -1}} {
+				si := i + p.i
+				sj := j + p.j
+				if si >= 0 &&
+					sj >= 0 &&
+					si < h &&
+					sj < w &&
+					input[si][sj] == '#' {
 					count++
 				}
 			}
