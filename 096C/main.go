@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func grid(h, w int, input []string) string {
@@ -30,7 +29,6 @@ func grid(h, w int, input []string) string {
 			}
 			if count == 0 {
 				return "No"
-				os.Exit(0)
 			}
 		}
 	}
