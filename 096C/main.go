@@ -1,36 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func grid(h, w int, input []string) string {
+	dx := []int{0, 1, 0, -1}
+	dy := []int{1, 0, -1, 0}
+
 	for px := 0; px < h; px++ {
 		for py := 0; py < w; py++ {
-			if string(input[px][py]) == "." {
+			if string(input[py][px]) == "." {
 				continue
 			}
 			var count int
-			if py-1 > 0 {
-				if string(input[px][py-1]) == "#" {
-					count++
+			for d := 0; d < 4; d++ {
+				posx := px + dx[d]
+				posy := py + dy[d]
+				if posx < 0 || h <= posx {
+					continue
 				}
-			}
-			if px-1 > 0 {
-				if string(input[px-1][py]) == "#" {
-					count++
+				if posy < 0 || w <= posy {
+					continue
 				}
-			}
-			if px+1 < h {
-				if string(input[px+1][py]) == "#" {
-					count++
-				}
-			}
-			if py+1 < w {
-				if string(input[px][py+1]) == "#" {
+				if string(input[posy][posx]) == "#" {
 					count++
 				}
 			}
 			if count == 0 {
 				return "No"
+				os.Exit(0)
 			}
 		}
 	}
@@ -39,6 +39,7 @@ func grid(h, w int, input []string) string {
 
 func main() {
 	var h, w int
+	fmt.Scan(&h, &w)
 	input := make([]string, h)
 	for i := range input {
 		fmt.Scan(&input[i])
