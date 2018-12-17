@@ -6,16 +6,16 @@ import (
 )
 
 func game(n int, a []int) int {
-	var alice, bob int
+	var diff int
 	sort.Sort(sort.Reverse(sort.IntSlice(a)))
 	for i, num := range a {
 		if i%2 == 0 {
-			alice += num
+			diff += num
 		} else {
-			bob += num
+			diff -= num
 		}
 	}
-	return alice - bob
+	return diff
 }
 
 func main() {
