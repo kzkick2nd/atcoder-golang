@@ -3,9 +3,20 @@ package main
 import "testing"
 
 func TestDream(t *testing.T) {
-	s := "dreameraser"
-	want := "YES"
-	if got := dp(s); got != want {
-		t.Fatalf("want is %v, got is %v", want, got)
+	cases := map[string]struct {
+		s, want string
+	}{
+		"1": {s: "erasedream", want: "YES"},
+		"2": {s: "dreameraser", want: "YES"},
+		"3": {s: "dreamerer", want: "NO"},
+	}
+
+	for n, tc := range cases {
+		tc := tc
+		t.Run(n, func(t *testing.T) {
+			if got := dp(tc.s); got != tc.want {
+				t.Fatalf("want is %v, got is %v", tc.want, got)
+			}
+		})
 	}
 }
