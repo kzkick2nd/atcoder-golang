@@ -4,23 +4,23 @@ import (
 	"fmt"
 )
 
-func dama(N, Y int) (x, y, z int) {
-	x, y, z = -1, -1, -1
-	for a := 0; a <= N; a++ {
-		for b := 0; b <= N; b++ {
-			c := N - a - b
-			if c < 0 {
+func dama(n, y int) (a, b, c int) {
+	d := make([]int, n)
+	a, b, c = -1, -1, -1
+	for i := range d {
+		for j := range d {
+			k := n - i - j
+			if k < 0 {
 				continue
 			}
-			if Y == 10000*a+5000*b+1000*c {
-				fmt.Println(a, b, c)
-				x = a
-				y = b
-				z = c
+			if y == 10000*j+5000*j+1000*k {
+				a = i
+				b = j
+				c = k
 			}
 		}
 	}
-	return x, y, z
+	return a, b, c
 }
 
 func main() {
