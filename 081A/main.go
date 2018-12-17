@@ -10,14 +10,10 @@ func main() {
 
 func one(input string) int {
 	var i int
-	if input[0] == '1' {
-		i++
-	}
-	if input[1] == '1' {
-		i++
-	}
-	if input[2] == '1' {
-		i++
+	for n := range input {
+		if input[n] == '1' {
+			i++
+		}
 	}
 	return i
 }

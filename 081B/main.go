@@ -2,32 +2,30 @@ package main
 
 import "fmt"
 
-func change(n int, a []int) int {
-	var count int
-	odd_flag := false
+func change(n int, list []int) int {
+	var c int
+	var oddFlag bool
 	for {
-		for _, num := range a {
+		for i, num := range list {
 			if num%2 != 0 {
-				odd_flag = true
+				oddFlag = true
 				break
 			}
+			list[i] = num / 2
 		}
-		if odd_flag == true {
+		if oddFlag == true {
 			break
 		}
-		for i, num := range a {
-			a[i] = num / 2
-		}
-		count++
+		c++
 	}
-	return count
+	return c
 }
 
 func main() {
 	var n int
 	fmt.Scan(&n)
 	a := make([]int, n)
-	for i, _ := range a {
+	for i := range a {
 		fmt.Scan(&a[i])
 	}
 	fmt.Println(change(n, a))

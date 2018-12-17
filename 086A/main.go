@@ -5,14 +5,12 @@ import "fmt"
 func main() {
 	var a, b int
 	fmt.Scan(&a, &b)
-	fmt.Println(evenodd(a, b))
+	fmt.Println(evenodd(a * b))
 }
 
-func evenodd(a, b int) string {
-	x := a * b
-	if x%2 == 0 {
+func evenodd(i int) string {
+	if i%2 == 0 {
 		return "Even"
-	} else {
-		return "Odd"
 	}
+	return "Odd"
 }
