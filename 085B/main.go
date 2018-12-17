@@ -2,21 +2,20 @@ package main
 
 import "fmt"
 
-func bucket(ins []int) int {
-	bucket := map[int]int{}
-	for i := range ins {
-		bucket[ins[i]]++
+func bucket(d []int) int {
+	b := map[int]int{}
+	for i := range d {
+		b[d[i]]++
 	}
-	fmt.Println(bucket)
-	return len(bucket)
+	return len(b)
 }
 
 func main() {
-	var in int
-	fmt.Scan(&in)
-	ins := make([]int, in)
-	for i := range ins {
-		fmt.Scan(&ins[i])
+	var n int
+	fmt.Scan(&n)
+	d := make([]int, n)
+	for i := range d {
+		fmt.Scan(&d[i])
 	}
-	fmt.Println(bucket(ins))
+	fmt.Println(bucket(d))
 }
