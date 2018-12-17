@@ -9,21 +9,21 @@ func main() {
 }
 
 func sum(n, a, b int) int {
-	var total int
+	var t int
 	for i := 1; i <= n; i++ {
-		sum := sumDigits(i)
-		if sum >= a && sum <= b {
-			total += i
+		s := sumDigits(i)
+		if s >= a && s <= b {
+			t += i
 		}
 	}
-	return total
+	return t
 }
 
 func sumDigits(n int) int {
-	var sum int
+	var s int
 	for n > 0 {
-		sum += n % 10
+		s += n % 10
 		n /= 10
 	}
-	return sum
+	return s
 }
