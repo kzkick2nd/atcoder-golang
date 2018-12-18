@@ -2,32 +2,23 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func abs(n int) int {
-	if n < 0 {
-		return -n
-	}
-	return n
-}
-
-func even(n int) bool {
-	if n%2 == 0 {
-		return true
-	}
-	return false
+	return int(math.Abs(float64(n)))
 }
 
 func travel(n int, t, x, y []int) string {
 	post, posx, posy := 0, 0, 0
-	for i, _ := range t {
+	for i := range t {
 		difft := abs(t[i] - post)
 		diffx := abs(x[i] - posx)
 		diffy := abs(y[i] - posy)
 		if difft < diffx+diffy {
 			return "No"
 		}
-		if even(difft) != even(diffx+diffy) {
+		if difft%2 != (diffx+diffy)%2 {
 			return "No"
 		}
 		post = t[i]
@@ -40,9 +31,7 @@ func travel(n int, t, x, y []int) string {
 func main() {
 	var n int
 	fmt.Scan(&n)
-	time := make([]int, n)
-	x := make([]int, n)
-	y := make([]int, n)
+	time, x, y := make([]int, n), make([]int, n), make([]int, n)
 	for i := range time {
 		fmt.Scan(&time[i])
 		fmt.Scan(&x[i])
