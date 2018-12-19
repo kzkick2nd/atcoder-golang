@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func dp(s string) string {
+func dream(s string) string {
 	dp := make([]int, len(s)+1)
 	dp[0] = 1
 	for i := range s {
@@ -33,5 +33,5 @@ func dp(s string) string {
 func main() {
 	var s string
 	fmt.Scan(&s)
-	fmt.Println(dp(s))
+	fmt.Println(dream(s))
 }

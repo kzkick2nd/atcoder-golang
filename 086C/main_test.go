@@ -8,27 +8,9 @@ func TestTravel(t *testing.T) {
 		time, x, y []int
 		want       string
 	}{
-		"1": {
-			n:    2,
-			time: []int{3, 6},
-			x:    []int{1, 1},
-			y:    []int{2, 1},
-			want: "Yes",
-		},
-		"2": {
-			n:    1,
-			time: []int{2},
-			x:    []int{100},
-			y:    []int{100},
-			want: "No",
-		},
-		"3": {
-			n:    2,
-			time: []int{5, 100},
-			x:    []int{1, 1},
-			y:    []int{1, 1},
-			want: "No",
-		},
+		"1": {n: 2, time: []int{3, 6}, x: []int{1, 1}, y: []int{2, 1}, want: "Yes"},
+		"2": {n: 1, time: []int{2}, x: []int{100}, y: []int{100}, want: "No"},
+		"3": {n: 2, time: []int{5, 100}, x: []int{1, 1}, y: []int{1, 1}, want: "No"},
 	}
 
 	for n, tc := range cases {
@@ -39,5 +21,4 @@ func TestTravel(t *testing.T) {
 			}
 		})
 	}
-
 }

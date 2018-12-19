@@ -14,7 +14,7 @@ func TestDream(t *testing.T) {
 	for n, tc := range cases {
 		tc := tc
 		t.Run(n, func(t *testing.T) {
-			if got := dp(tc.s); got != tc.want {
+			if got := dream(tc.s); got != tc.want {
 				t.Fatalf("want is %v, got is %v", tc.want, got)
 			}
 		})
