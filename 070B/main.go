@@ -11,11 +11,7 @@ func main() {
 }
 
 func robo(in []int) int {
-	diff := min(in[1], in[3]) - max(in[0], in[2])
-	if diff < 0 {
-		return 0
-	}
-	return diff
+	return max(0, min(in[1], in[3])-max(in[0], in[2]))
 }
 
 func max(x, y int) int {
