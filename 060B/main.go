@@ -9,5 +9,10 @@ func main() {
 }
 
 func choose(a, b, c int) string {
-	return "YES"
+	for i := 1; i <= 100; i++ {
+		if i*a%b == c {
+			return "YES"
+		}
+	}
+	return "NO"
 }
