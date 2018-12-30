@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	var n int
@@ -11,6 +13,15 @@ func main() {
 	fmt.Println(train(n, a))
 }
 
+// TODO: WIP
 func train(n int, a []int) int {
-	return 2
+	c, p := 1, 1
+	for c < 100000 {
+		p = a[p-1]
+		if p == 2 {
+			return c
+		}
+		c++
+	}
+	return -1
 }
