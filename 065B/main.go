@@ -16,7 +16,7 @@ func main() {
 // TODO: WIP
 func train(n int, a []int) int {
 	c, p := 1, 1
-	for c < 100000 {
+	for c <= n {
 		p = a[p-1]
 		if p == 2 {
 			return c
