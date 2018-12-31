@@ -6,6 +6,7 @@ import (
 
 func main() {
 	var n int
+	fmt.Scan(&n) // 最初のnをパースし忘れていた
 	a := make([]int, n)
 	for i := range a {
 		fmt.Scan(&a[i])
@@ -13,15 +14,13 @@ func main() {
 	fmt.Println(train(n, a))
 }
 
-// TODO: WIP
 func train(n int, a []int) int {
-	c, p := 1, 1
-	for c <= n {
+	p := 1
+	for c := range a {
 		p = a[p-1]
 		if p == 2 {
-			return c
+			return c + 1
 		}
-		c++
 	}
 	return -1
 }
