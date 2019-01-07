@@ -1,11 +1,19 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type pair struct {
 	i, j int
+}
+
+func main() {
+	var h, w int
+	fmt.Scan(&h, &w)
+	input := make([]string, h)
+	for i := range input {
+		fmt.Scan(&input[i])
+	}
+	fmt.Println(grid(h, w, input))
 }
 
 func grid(h, w int, input []string) string {
@@ -32,14 +40,4 @@ func grid(h, w int, input []string) string {
 		}
 	}
 	return "Yes"
-}
-
-func main() {
-	var h, w int
-	fmt.Scan(&h, &w)
-	input := make([]string, h)
-	for i := range input {
-		fmt.Scan(&input[i])
-	}
-	fmt.Println(grid(h, w, input))
 }

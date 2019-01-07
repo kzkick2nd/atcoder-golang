@@ -5,6 +5,18 @@ import (
 	"strconv"
 )
 
+func main() {
+	var f, w int
+	fmt.Scan(&f, &w)
+	maps := make([]string, f)
+	for i := range maps {
+		fmt.Scan(&maps[i])
+	}
+	for _, out := range mine(f, w, maps) {
+		fmt.Println(out)
+	}
+}
+
 func mine(f, w int, maps []string) []string {
 	dx := []int{-1, 0, 1, -1, 1, -1, 0, 1}
 	dy := []int{1, 1, 1, 0, 0, -1, -1, -1}
@@ -34,16 +46,4 @@ func mine(f, w int, maps []string) []string {
 		}
 	}
 	return minemap
-}
-
-func main() {
-	var f, w int
-	fmt.Scan(&f, &w)
-	maps := make([]string, f)
-	for i := range maps {
-		fmt.Scan(&maps[i])
-	}
-	for _, out := range mine(f, w, maps) {
-		fmt.Println(out)
-	}
 }
