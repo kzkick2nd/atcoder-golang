@@ -42,3 +42,4 @@
 - TODO 096C なにを間違えていたか確認
 - 079C fmt.Sprintf()
 - 079C rune数字のint32化
+    - int(r[0] - '0')
