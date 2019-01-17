@@ -9,7 +9,7 @@ func TestOn(t *testing.T) {
 	}{
 		"1": {s: "oxo", expect: 900},
 		"2": {s: "ooo", expect: 1000},
-		"3": {s; "xxx", expect: 700},
+		"3": {s: "xxx", expect: 700},
 	}
 
 	for n, tc := range cases {
