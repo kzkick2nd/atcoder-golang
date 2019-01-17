@@ -3,15 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	var input string
-	fmt.Scan(&input)
-	fmt.Println(one(input))
+	var in string
+	fmt.Scan(&in)
+	fmt.Println(one(in))
 }
 
-func one(input string) int {
+func one(in string) int {
 	var i int
-	for n := range input {
-		if input[n] == '1' {
+	for n := range in {
+		if in[n] == '1' {
 			i++
 		}
 	}

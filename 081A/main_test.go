@@ -4,18 +4,18 @@ import "testing"
 
 func TestOne(t *testing.T) {
 	cases := map[string]struct {
-		in   string
-		want int
+		in     string
+		expect int
 	}{
-		"1": {in: "101", want: 2},
-		"2": {in: "000", want: 0},
+		"1": {in: "101", expect: 2},
+		"2": {in: "000", expect: 0},
 	}
 
 	for n, tc := range cases {
 		tc := tc
 		t.Run(n, func(t *testing.T) {
-			if got := one(tc.in); got != tc.want {
-				t.Fatalf("want = %v, got = %v", tc.want, got)
+			if actual := one(tc.in); actual != tc.expect {
+				t.Fatalf("expect is %d, actual is %d", tc.expect, actual)
 			}
 		})
 	}
