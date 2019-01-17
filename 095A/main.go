@@ -9,5 +9,11 @@ func main() {
 }
 
 func on(s string) int {
-	return 700
+	t := 700
+	for _, v := range s {
+		if v == 'o' {
+			t += 100
+		}
+	}
+	return t
 }
