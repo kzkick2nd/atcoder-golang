@@ -1,24 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
-func change(n int, list []int) int {
-	var c int
-	var oddFlag bool
-	for {
-		for i, num := range list {
-			if num%2 != 0 {
-				oddFlag = true
-				break
-			}
-			list[i] = num / 2
+func change(a []int) int {
+	var l []int
+	for _, n := range a {
+		var c int
+		for ; n%2 == 0; n /= 2 {
+			c++
 		}
-		if oddFlag == true {
-			break
-		}
-		c++
+		l = append(l, c)
 	}
-	return c
+	sort.Ints(l)
+	return l[0]
 }
 
 func main() {
@@ -28,5 +25,5 @@ func main() {
 	for i := range a {
 		fmt.Scan(&a[i])
 	}
-	fmt.Println(change(n, a))
+	fmt.Println(change(a))
 }
