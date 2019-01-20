@@ -13,35 +13,13 @@ func main() {
 }
 
 func garden(h []int) int {
-	var c int
-	for i := 0; i < 100; i++ {
-		if zeroAll(h) {
-			break
+	//  全ての山の増加分の和
+	var c, p int
+	for _, v := range h {
+		if p <= v {
+			c += v - p
 		}
-		var unZero bool
-		for i := range h {
-			if h[i] == 0 {
-				if unZero {
-					c++
-				}
-				unZero = false
-			} else {
-				unZero = true
-				h[i]--
-			}
-		}
-		if unZero {
-			c++
-		}
+		p = v
 	}
 	return c
-}
-
-func zeroAll(h []int) bool {
-	for _, v := range h {
-		if v != 0 {
-			return false
-		}
-	}
-	return true
 }
