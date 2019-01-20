@@ -9,42 +9,39 @@ func main() {
 	for n := range h {
 		fmt.Scan(&h[n])
 	}
-	fmt.Println(garden(n, h))
+	fmt.Println(garden(h))
 }
 
-func garden(n int, h []int) int {
-	return reduce(h)
-}
-
-func reduce(h []int) int {
+func garden(h []int) int {
 	var c int
-	for {
-		if clear(h) {
+	for i := 0; i < 100; i++ {
+		if zeroAll(h) {
 			break
 		}
-		c++
-		for i, v := range h {
-			h[i] = v - 1
-		}
-		for i, v := range h {
-			if v < 1 {
-				c += reduce(h[:i+1])
-				c += reduce(h[i+1:])
+		var unZero bool
+		for i := range h {
+			if h[i] == 0 {
+				if unZero {
+					c++
+				}
+				unZero = false
+			} else {
+				unZero = true
+				h[i]--
 			}
+		}
+		if unZero {
+			c++
 		}
 	}
 	return c
 }
 
-func clear(h []int) bool {
-	var ov int
+func zeroAll(h []int) bool {
 	for _, v := range h {
-		if v > 0 {
-			ov++
+		if v != 0 {
+			return false
 		}
 	}
-	if ov == 0 {
-		return true
-	}
-	return false
+	return true
 }
