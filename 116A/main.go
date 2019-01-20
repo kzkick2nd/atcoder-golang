@@ -9,5 +9,5 @@ func main() {
 }
 
 func tri(a, b, c int) int {
-	return 0
+	return a * b / 2
 }
