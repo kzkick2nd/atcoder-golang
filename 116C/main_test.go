@@ -16,7 +16,7 @@ func TestGarden(t *testing.T) {
 	for n, tc := range cases {
 		tc := tc
 		t.Run(n, func(t *testing.T) {
-			if actual := garden(tc.h); actual != tc.expect {
+			if actual := garden(tc.n, tc.h); actual != tc.expect {
 				t.Fatalf("expect is %v, got is %v", tc.expect, actual)
 			}
 		})
