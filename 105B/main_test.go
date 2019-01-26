@@ -12,10 +12,10 @@ func TestDonuts(t *testing.T) {
 		"3": {n: 3, expect: "No"},
 	}
 
-	for n, tc := range cases {
+	for i, tc := range cases {
 		tc := tc
-		t.Run(n, func(t *testing.T) {
-			if actual := donuts(n); actual != tc.expect {
+		t.Run(i, func(t *testing.T) {
+			if actual := donuts(tc.n); actual != tc.expect {
 				t.Fatalf("expect is %v, actual is %v.", tc.expect, actual)
 			}
 		})
