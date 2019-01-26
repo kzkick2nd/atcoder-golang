@@ -9,5 +9,12 @@ func main() {
 }
 
 func donuts(n int) string {
-	return "Yes"
+	for i := 0; i < 25; i++ {
+		for j := 0; j < 15; j++ {
+			if 4*i+7*j == n {
+				return "Yes"
+			}
+		}
+	}
+	return "No"
 }
