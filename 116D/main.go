@@ -14,9 +14,11 @@ func main() {
 	for n := range menu {
 		fmt.Scan(&menu[n].t, &menu[n].d)
 	}
-	fmt.Println(manzoku(menu))
+	fmt.Println(k, manzoku(menu))
 }
 
-func manzoku(m []sushi) int {
+func manzoku(k int, m []sushi) int {
+	for i := 0; i < k; i++ {
+	}
 	return 0
 }

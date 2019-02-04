@@ -11,7 +11,10 @@ func TestGarden(t *testing.T) {
 		"1": {n: 4, h: []int{1, 2, 2, 1}, expect: 2},
 		"2": {n: 5, h: []int{3, 1, 2, 3, 1}, expect: 5},
 		"3": {n: 8, h: []int{4, 23, 75, 0, 23, 96, 50, 100}, expect: 221},
+		"3": {n: 8, h: []int{4, 23, 75, 0, 23, 96, 50, 100}, expect: 221},
 	}
+
+	var hoge int
 
 	for n, tc := range cases {
 		tc := tc
