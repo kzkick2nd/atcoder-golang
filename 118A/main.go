@@ -9,5 +9,8 @@ func main() {
 }
 
 func pm(a, b int) int {
-	return 0
+	if b%a == 0 {
+		return a + b
+	}
+	return b - a
 }
