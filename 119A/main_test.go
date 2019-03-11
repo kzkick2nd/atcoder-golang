@@ -12,9 +12,9 @@ func TestHeisei(t *testing.T) {
 	}
 
 	for n, tc := range cases {
-		t.Run(n,func(t *testing.T){
+		t.Run(n, func(t *testing.T) {
 			tc := tc
-			if( actual := heisei(tc.s); actual != tc.expect ){
+			if actual := heisei(tc.s); actual != tc.expect {
 				t.Fatalf("expect is %v, actual is %v", tc.expect, actual)
 			}
 		})
