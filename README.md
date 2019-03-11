@@ -2,6 +2,7 @@
 
 ### 問題選び
 - [AtCoder に登録したら次にやること ～ これだけ解けば十分闘える！過去問精選 10 問 ～ - Qiita](https://qiita.com/drken/items/fd4e5e3630d0f5859067)
+- 114以降
 
 ### MEMO
 1. まず入力を定義してScan
