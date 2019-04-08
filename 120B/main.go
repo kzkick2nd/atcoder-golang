@@ -9,23 +9,20 @@ func main() {
 }
 
 func divisor(a, b, k int) int {
-	g := gcd(a, b)
-	c := 1
-	for g > 1 {
-		g--
-		if a%g == 0 && b%g == 0 {
-			c++
-			if c == k {
-				return g
-			}
+	var i int
+	if a > b {
+		i = b
+	} else {
+		i = a
+	}
+	var count int
+	for {
+		if a%i == 0 && b%i == 0 {
+			count++
 		}
+		if count == k {
+			return i
+		}
+		i--
 	}
-	return 1
-}
-
-func gcd(a, b int) int {
-	for b != 0 {
-		a, b = b, a%b
-	}
-	return a
 }
